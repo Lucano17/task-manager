@@ -1,0 +1,4 @@
+Scripts: npm run dev ("nodemon run src/index.js")
+
+CMD: mongod -> Sino da error en consola
+     mongosh

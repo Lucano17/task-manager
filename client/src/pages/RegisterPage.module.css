@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .registerForm {
@@ -33,4 +34,18 @@
 
 .registerError {
     color: rgb(233, 57, 110);
+}
+
+.registerForm h1 {
+    color: white;
+}
+
+.moveToLogin {
+    display: flex;
+    color: white;
+    position: relative;
+}
+
+.moveToLoginButton {
+    margin-left: 3px;
 }

@@ -2,7 +2,7 @@ import styles from "./RegisterPage.module.css";
 import { useForm } from "react-hook-form";
 import React, { useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const RegisterPage = () => {
   const {
@@ -29,6 +29,7 @@ const RegisterPage = () => {
             {error}
           </div>
         ))}
+        <h1>Register</h1>
         <input
           className={styles.registerInput}
           type="text"
@@ -36,7 +37,7 @@ const RegisterPage = () => {
           {...register("username", { required: true })}
         />
         {errors.username && (
-          <p className={styles.registerError}>Username is required</p>
+          <p className={styles.registerError}>User name is required</p>
         )}
 
         <input
@@ -45,7 +46,7 @@ const RegisterPage = () => {
           placeholder="E-mail"
           {...register("email", { required: true })}
         />
-        {errors.username && (
+        {errors.email && (
           <p className={styles.registerError}>E-mail is required</p>
         )}
 
@@ -55,7 +56,7 @@ const RegisterPage = () => {
           placeholder="Password"
           {...register("password", { required: true })}
         />
-        {errors.username && (
+        {errors.password && (
           <p className={styles.registerError}>Password is required</p>
         )}
 
@@ -63,6 +64,9 @@ const RegisterPage = () => {
           Registrar
         </button>
       </form>
+      <p className={styles.moveToLogin}>
+        Already have an account? <Link className={styles.moveToLoginButton} to="/login">Log In</Link>
+      </p>
     </div>
   );
 };

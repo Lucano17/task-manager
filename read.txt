@@ -2,3 +2,6 @@ Scripts: npm run dev ("nodemon run src/index.js")
 
 CMD: mongod -> Sino da error en consola
      mongosh
+
+
+Arreglar: No funcionan los errores Invalid E-mail, 6 carácteres, etc (LoginPage.jsx, AuthContext.jsx, auth.schema.js)

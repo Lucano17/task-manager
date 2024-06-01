@@ -1,18 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./LoginPage.module.css";
 import {useForm} from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 
 const LoginPage = () => {
   
 const { register, handleSubmit, formState: {errors} } = useForm();
-const {signin, errors: signinErrors} = useAuth()
+const {signin, errors: signinErrors, isAuthenticated} = useAuth()
+const navigate = useNavigate()
 
 const onSubmit = handleSubmit((data) => {
   signin(data);
 });
+
+  useEffect(()=>{
+    if (isAuthenticated) navigate("/tasks")
+  },[isAuthenticated])
+
   return (
     <div className={styles.loginContainer}>
       <form className={styles.loginForm} onSubmit={onSubmit}>

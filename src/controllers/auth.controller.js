@@ -1,6 +1,8 @@
 import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 import { createAccessToken } from "../libs/jwt.js";
+import jwt from "jsonwebtoken";
+import { TOKEN_SECRET } from "../config.js";
 
 export const register = async (req, res) => {
   const { email, password, username } = req.body;
@@ -20,7 +22,11 @@ export const register = async (req, res) => {
     const userSaved = await newUser.save();
     const token = await createAccessToken({ id: userSaved._id });
 
-    res.cookie("token", token);
+    res.cookie("token", token, {
+      sameSite: "none",
+      secure: true,
+      httpOnly: false,
+    });
     res.json({
       id: userSaved._id,
       username: userSaved.username,
@@ -78,8 +84,20 @@ export const profile = async (req, res) => {
   });
 };
 
-// export const deleteUser = async (req, res) => {
-//   const user = await User.findByIdAndDelete(req.params.id, { new: true });
-//   if (!user) return res.status(404).json({ message: "User not found" });
-//   return res.sendStatus(204);
-// };
+export const verifyToken = async (req, res) => {
+  const { token } = req.cookies;
+  if (!token) return res.send(false);
+
+  jwt.verify(token, TOKEN_SECRET, async (error, user) => {
+    if (error) return res.sendstatus(401);
+
+    const userFound = await User.findById(user.id);
+    if (!userFound) return res.sendstatus(401);
+
+    return res.json({
+      id: userFound._id,
+      username: userFound.username,
+      email: userFound.email,
+    });
+  });
+};

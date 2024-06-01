@@ -9,6 +9,7 @@ import ProfilePage from "./pages/ProfilePage.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import ProtectedRoute from "./ProtectedRoute.jsx";
 import { TaskProvider } from "./context/TasksContext.jsx";
+import NavBar from "./components/NavBar.jsx";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <AuthProvider>
         <TaskProvider>
           <BrowserRouter>
+            <NavBar/>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/login" element={<LoginPage />} />

@@ -1,0 +1,46 @@
+/* .navBarContainer {
+    
+} */
+
+.navBar {
+    align-items: center; 
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(107, 18, 86, 0.252);
+    color: white;
+    justify-content: space-between;
+    flex-direction: row;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    padding: 0 20px;
+    z-index: 1000;
+}
+
+.navBar h1 {
+    position: relative;
+    margin-left: 9px;
+}
+
+.navBar h3 {
+    position: relative;
+    margin-right: 5px;
+}
+
+.navBar li {
+    padding-left: 5px;
+    padding-right: 5px;
+    list-style: none;
+}
+
+.navBar ul {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+}
+
+.navBar a {
+    text-decoration: none;
+}

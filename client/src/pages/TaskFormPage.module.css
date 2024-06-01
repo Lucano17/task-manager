@@ -25,6 +25,8 @@
 .taskForm textarea {
     margin-top: 20px;
     width: 90%;
+    height: 150px;
+    resize: none;
 }
 
 .taskButton {

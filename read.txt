@@ -4,4 +4,5 @@ CMD: mongod -> Sino da error en consola
      mongosh
 
 
-Arreglar: No funcionan los errores Invalid E-mail, 6 carácteres, etc (LoginPage.jsx, AuthContext.jsx, auth.schema.js)
+Arreglar: - Add task no redirecciona a "/tasks" al guarduar una nueva tarea.
+          - Add task debe tener un botón de cancelar tarea y que redireccione a "/tasks".

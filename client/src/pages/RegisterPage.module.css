@@ -49,3 +49,7 @@
 .moveToLoginButton {
     margin-left: 3px;
 }
+
+.moveToLogin a:visited {
+    color: rgb(214, 33, 193);
+  }

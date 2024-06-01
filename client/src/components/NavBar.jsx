@@ -11,12 +11,12 @@ const NavBar = () => {
       <h1>Tasks Manager</h1>
       {isAuthenticated ? (
         <>
-          <h3>Welcome {user.username}</h3>
+          <h3>Welcome <span className={styles.navBarUsername}>{user.username}</span></h3>
           <ul>
             <li>
               <Link to="/tasks/new">Add task</Link>
             </li>
-            <p>|</p>
+            <span>|</span>
             <li>
               <Link
                 to="/"
@@ -31,13 +31,15 @@ const NavBar = () => {
         </>
       ) : (
         <>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          <p>|</p>
-          <li>
-            <Link to="/register">Register</Link>
-          </li>
+          <ul>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+            <span>|</span>
+            <li>
+              <Link to="/register">Register</Link>
+            </li>
+          </ul>
         </>
       )}
     </nav>

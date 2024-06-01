@@ -49,3 +49,7 @@
 .moveToRegisterButton {
     margin-left: 3px;
 }
+
+.moveToRegister a:visited {
+    color: rgb(214, 33, 193);
+  }

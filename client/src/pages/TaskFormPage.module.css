@@ -1,0 +1,42 @@
+.taskContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.taskForm {
+    align-items: center;
+    display: flex;
+    flex-direction: column; /* Alinea los elementos del formulario en columna */
+    padding: 20px;
+    width: 25%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(80, 30, 74, 0.558);
+}
+
+.taskForm input {
+    margin-top: 20px;
+    width: 90%;
+}
+
+.taskForm textarea {
+    margin-top: 20px;
+    width: 90%;
+}
+
+.taskButton {
+    background-color: rgb(153, 14, 181);
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: 600;
+    margin-top: 20px;
+    width: 50%;
+}
+
+.taskForm h1 {
+    color: white;
+}

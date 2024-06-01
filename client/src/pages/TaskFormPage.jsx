@@ -1,13 +1,38 @@
-import styles from "./TaskFormPage.module.css"
+import styles from "./TaskFormPage.module.css";
+import { useForm } from "react-hook-form";
+import { useTasks } from "../context/TasksContext";
 
-import React from 'react'
+import React from "react";
 
 const TaskFormPage = () => {
-  return (
-    <div>
-      Task Form Page
-    </div>
-  )
-}
+  const { register, handleSubmit } = useForm();
+  const { createTask } = useTasks();
 
-export default TaskFormPage
+  const onSubmit = handleSubmit((data) => {
+    createTask(data);
+  });
+
+  return (
+    <div className={styles.taskContainer}>
+      <form onSubmit={onSubmit} className={styles.taskForm}>
+        <h1>Add a new task!</h1>
+        <input
+          type="text"
+          placeholder="Title"
+          {...register("title")}
+          autoFocus
+        />
+        <textarea
+          name=""
+          id=""
+          rows="3"
+          placeholder="Description"
+          {...register("description")}
+        />
+        <button className={styles.taskButton}>Save</button>
+      </form>
+    </div>
+  );
+};
+
+export default TaskFormPage;

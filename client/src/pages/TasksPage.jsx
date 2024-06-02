@@ -14,7 +14,7 @@ const TasksPage = () => {
   if (tasks.length == 0) return (<h1>No tasks yet! Add new one <Link to="/tasks/new">HERE</Link></h1>)
 
   return (
-  <div className={styles.TaskPageContainer}>
+  <div className={styles.tasksPageContainer}>
     {tasks.map(task =>(
       <TaskCard task={task} key={task._id}/>
     ))}

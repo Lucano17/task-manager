@@ -1,9 +1,23 @@
 .taskCardContainer {
-    position: relative;
     border: 3px solid white;
-    margin-bottom: 10px;
-}
-
-.taskCardContainer h1 {
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    height: 250px;
+  }
+  
+  .taskCardContainer h1 {
     color: aqua;
-}
+    margin-bottom: 10px;
+  }
+  
+  .taskCardContainer p {
+    color: #ccc;
+    margin-bottom: 10px;
+  }
+  
+  .taskCardContainer button {
+    margin-right: 10px;
+  }

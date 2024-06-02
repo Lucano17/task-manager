@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { useTasks } from "../context/TasksContext";
 import styles from "./TasksPage.module.css";
-
 import React, { useEffect } from "react";
+import TaskCard from "../components/TaskCard";
 
 const TasksPage = () => {
   const { getTasks, tasks } = useTasks();
@@ -14,12 +14,9 @@ const TasksPage = () => {
   if (tasks.length == 0) return (<h1>No tasks yet! Add new one <Link to="/tasks/new">HERE</Link></h1>)
 
   return (
-  <div>
+  <div className={styles.TaskPageContainer}>
     {tasks.map(task =>(
-      <div key={task._id}>
-        <h1>{task.title}</h1>
-        <p>{task.description}</p>
-      </div>
+      <TaskCard task={task} key={task._id}/>
     ))}
   </div>
   )

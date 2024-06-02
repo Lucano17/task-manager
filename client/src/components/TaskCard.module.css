@@ -1,0 +1,9 @@
+.taskCardContainer {
+    position: relative;
+    border: 3px solid white;
+    margin-bottom: 10px;
+}
+
+.taskCardContainer h1 {
+    color: aqua;
+}

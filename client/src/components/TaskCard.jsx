@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 
+dayjs.extend(utc);
+
 const TaskCard = ({ task }) => {
   const { deleteTask } = useTasks();
   return (

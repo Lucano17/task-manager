@@ -25,11 +25,14 @@ export const AuthProvider = ({ children }) => {
   const signup = async (user) => {
     try {
       const res = await registerRequest(user);
-      console.log(res.data);
-      setUser(res.data);
-      setIsAuthenticated(true);
+      if (res.status === 200) {
+        console.log(res.data);
+        setUser(res.data);
+        setIsAuthenticated(true);
+      }
     } catch (error) {
-      setErrors(error.response.data);
+      console.log(error.response.data);
+      setErrors(error.response.data.message);
     }
   };
 
@@ -47,11 +50,11 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const logout = ()=> {
-    Cookies.remove("token")
-    setIsAuthenticated(false)
-    setUser(null)
-  }
+  const logout = () => {
+    Cookies.remove("token");
+    setIsAuthenticated(false);
+    setUser(null);
+  };
 
   useEffect(() => {
     if (errors.length > 0) {

@@ -17,8 +17,8 @@ const RegisterPage = () => {
     if (isAuthenticated) navigate("/tasks");
   }, [isAuthenticated]);
 
-  const onSubmit = handleSubmit(async (values) => {
-    signup(values);
+  const onSubmit = handleSubmit(async (value) => {
+    signup(value);
   });
 
   return (

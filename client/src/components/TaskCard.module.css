@@ -21,3 +21,10 @@
   .taskCardContainer button {
     margin-right: 10px;
   }
+
+  .taskCardButtons {
+    color: rgb(255, 0, 204);
+    border: 3px solid white;
+    background-color: transparent;
+    padding: 5px;
+  }

@@ -8,7 +8,11 @@ const NavBar = () => {
 
   return (
     <nav className={styles.navBar}>
+      <Link to={
+        isAuthenticated ? "/tasks" : "/"
+      }>
       <h1>Tasks Manager</h1>
+      </Link>
       {isAuthenticated ? (
         <>
           <h3>Welcome <span className={styles.navBarUsername}>{user.username}</span></h3>

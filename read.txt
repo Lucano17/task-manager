@@ -5,10 +5,7 @@ CMD: mongod -> Sino da error en consola
 
 
 Arreglar: 
-          - Arreglar los estilos del NavBar, para que al hacer scroll, no se vean
-          las TaskCards debajo del NavBar.
           - Add task debe tener un botón de cancelar tarea y que redireccione a "/tasks".
-          - Mejorar los estilos de TaskCard (h1, botones y fondo).
           - Agregar contenido al HomePage.
           - Agregar en profile opciones como: 
                                               - Eliminar cuenta

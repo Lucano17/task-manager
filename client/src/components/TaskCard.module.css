@@ -1,30 +1,77 @@
 .taskCardContainer {
+    flex-direction: column;
     border: 3px solid white;
-    padding: 20px;
+    padding: 0px 10px 20px 20px;
     background-color: #1e1e1e;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 200px;
-    height: 250px;
+    height: 300px;
+    align-items: center;
+    justify-content: space-between
   }
   
   .taskCardContainer h1 {
-    color: aqua;
+    text-align: center;
+    color: #ff00ff;
     margin-bottom: 10px;
   }
   
   .taskCardContainer p {
     color: #ccc;
     margin-bottom: 10px;
+    overflow-y: auto;
+    max-height: 120px;
+    max-width: 200px;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    padding-right: 5px;
+  }
+
+  .taskCardDescription {
+    height: 120px;
   }
   
   .taskCardContainer button {
-    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: auto;
   }
 
   .taskCardButtons {
     color: rgb(255, 0, 204);
     border: 3px solid white;
+    border-radius: 5px;
     background-color: transparent;
     padding: 5px;
+    text-decoration: none;
+    cursor: pointer;
   }
+
+  .taskCardContainer div {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.taskCardContainer p::-webkit-scrollbar,
+.taskCardContainer p::-webkit-scrollbar-track,
+.taskCardContainer p::-webkit-scrollbar-thumb {
+  width: 10px;
+  border-radius: 10px;
+  background-color: rgb(153, 14, 181);
+  border: 2px solid #2c2c2c;
+  background-color: #1e1e1e;
+}
+.taskCardContainer p::-webkit-scrollbar-thumb {
+  background-color: #ff00ff;
+}
+
+.taskCardContainer p::-webkit-scrollbar-thumb:active {
+  background-color: #a000a0;
+}
+
+.taskCardDate {
+  margin-top: auto;
+  text-align: center;
+}

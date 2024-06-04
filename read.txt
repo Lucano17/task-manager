@@ -4,9 +4,20 @@ CMD: mongod -> Sino da error en consola
      mongosh
 
 
-Arreglar: - Arreglar los estilos del NavBar, para que al hacer scroll, no se vean
+Arreglar: 
+          - Arreglar los estilos del NavBar, para que al hacer scroll, no se vean
           las TaskCards debajo del NavBar.
           - Add task debe tener un botón de cancelar tarea y que redireccione a "/tasks".
           - Mejorar los estilos de TaskCard (h1, botones y fondo).
           - Agregar contenido al HomePage.
+          - Agregar en profile opciones como: 
+                                              - Eliminar cuenta
+                                              - Cambiar usuario
+                                              - Cambiar E-mail
+                                              - Cambiar contraseña
+                                              - Fecha en la que se creó la cuenta
+          - Agregar que cada task, al hacer click, te redireccione a un "/task/id" donde se vean
+          la task en grande, y en caso de que tenga mucho contenido, puedas verlo cómodamente. También
+          botones de editar y eliminar.
+
           

@@ -12,8 +12,8 @@ const TaskCard = ({ task }) => {
   return (
     <div className={styles.taskCardContainer}>
       <h1>{task.title}</h1>
-      <p>{task.description}</p>
-      <p>{dayjs(task.date).utc().format("DD/MM/YYYY")}</p>
+      <p className={styles.taskCardDescription}>{task.description}</p>
+      <p className={styles.taskCardDate}>{dayjs(task.date).utc().format("DD/MM/YYYY")}</p>
       <div>
         <button
           className={styles.taskCardButtons}

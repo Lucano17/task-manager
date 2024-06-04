@@ -16,12 +16,12 @@ const TaskCard = ({ task }) => {
       <p className={styles.taskCardDate}>{dayjs(task.date).utc().format("DD/MM/YYYY")}</p>
       <div>
         <button
-          className={styles.taskCardButtons}
+          className={styles.taskCardDeleteButton}
           onClick={() => deleteTask(task._id)}
         >
           Delete
         </button>
-        <Link className={styles.taskCardButtons} to={`/tasks/${task._id}`}>
+        <Link className={styles.taskCardEditButton} to={`/tasks/${task._id}`}>
           Edit
         </Link>
       </div>

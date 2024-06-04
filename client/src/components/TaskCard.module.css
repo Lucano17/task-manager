@@ -1,6 +1,6 @@
 .taskCardContainer {
     flex-direction: column;
-    border: 3px solid white;
+    border: 3px solid #724972;
     padding: 0px 10px 20px 20px;
     background-color: #1e1e1e;
     border-radius: 8px;
@@ -31,22 +31,42 @@
   .taskCardDescription {
     height: 120px;
   }
-  
-  .taskCardContainer button {
+
+  .taskCardEditButton {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-top: auto;
-  }
-
-  .taskCardButtons {
-    color: rgb(255, 0, 204);
-    border: 3px solid white;
+    margin-top: 6px;
+    color: rgb(0, 0, 0);
+    border: 3px solid transparent;
     border-radius: 5px;
-    background-color: transparent;
+    background-color: #ff00ff;
     padding: 5px;
+    font-weight: 600;
     text-decoration: none;
     cursor: pointer;
+  }
+
+  .taskCardEditButton:active {
+    color: #000000;
+    background-color: #a000a0;
+  }
+
+  .taskCardDeleteButton {
+    display: flex;
+    margin-top: 6px;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    border: 3px solid transparent;
+    border-radius: 5px;
+    background-color: rgb(244, 33, 33);
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .taskCardDeleteButton:active {
+    color: rgb(0, 0, 0);
+    background-color: rgb(250, 77, 77);
   }
 
   .taskCardContainer div {
@@ -59,7 +79,6 @@
 .taskCardContainer p::-webkit-scrollbar-thumb {
   width: 10px;
   border-radius: 10px;
-  background-color: rgb(153, 14, 181);
   border: 2px solid #2c2c2c;
   background-color: #1e1e1e;
 }

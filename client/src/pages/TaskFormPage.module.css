@@ -1,8 +1,7 @@
 .taskContainer {
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .taskForm {
@@ -45,4 +44,11 @@
 
 .taskForm label {
     margin-top: 10px;
+}
+
+
+.taskCancelButton {
+    color: rgb(135, 43, 144);
+    font-size: 2em;
+    padding-left: 10px;
 }

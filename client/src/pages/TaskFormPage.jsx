@@ -5,6 +5,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import React, { useEffect } from "react";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
+import { GiCancel } from "react-icons/gi";
+import { Link } from "react-router-dom";
 
 dayjs.extend(utc);
 
@@ -63,6 +65,7 @@ const TaskFormPage = () => {
         <input type="date" {...register("date")} />
         <button className={styles.taskButton}>Save</button>
       </form>
+      <Link to="/tasks" className={styles.taskCancelButton}><GiCancel /></Link>
     </div>
   );
 };

@@ -24,8 +24,9 @@ const TaskCard = ({ task }) => {
     <div className={styles.taskCardContainer}>
       <h1>{task.title}</h1>
       <p className={styles.taskCardDescription}>{task.description}</p>
+      <footer>
       <p className={styles.taskCardDate}>{dayjs(task.date).utc().format("DD/MM/YYYY")}</p>
-      <div>
+      <div className={styles.taskCardButtonContainer}>
         <button
           className={`${styles.taskButton} ${styles.taskCardDeleteButton}`}
           onClick={handleDelete}
@@ -36,6 +37,8 @@ const TaskCard = ({ task }) => {
           Edit
         </Link>
       </div>
+      </footer>
+      
     </div>
   );
 };

@@ -1,4 +1,5 @@
 .taskCardContainer {
+    display: flex;
     flex-direction: column;
     border: 3px solid #724972;
     padding: 0px 10px 20px 20px;
@@ -8,13 +9,14 @@
     width: 200px;
     height: 300px;
     align-items: center;
-    justify-content: space-between
+    justify-content: space-between;
   }
   
   .taskCardContainer h1 {
     text-align: center;
     color: #ff00ff;
     margin-bottom: 10px;
+    font-size: 25px;
   }
   
   .taskCardContainer p {
@@ -72,9 +74,9 @@
     border: 2px inset #5a5a59;
   }
 
-  .taskCardContainer div {
+  .taskCardButtonContainer {
+    gap: 40px;
     display: flex;
-    justify-content: space-evenly;
 }
 
 .taskCardContainer p::-webkit-scrollbar,
@@ -97,3 +99,5 @@
   margin-top: auto;
   text-align: center;
 }
+
+

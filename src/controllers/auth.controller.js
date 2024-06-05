@@ -86,13 +86,13 @@ export const profile = async (req, res) => {
 
 export const verifyToken = async (req, res) => {
   const { token } = req.cookies;
-  if (!token) return res.send(false);
+  if (!token) return res.json(false);
 
   jwt.verify(token, TOKEN_SECRET, async (error, user) => {
-    if (error) return res.sendstatus(401);
+    if (error) return res.sendStatus(401);
 
     const userFound = await User.findById(user.id);
-    if (!userFound) return res.sendstatus(401);
+    if (!userFound) return res.sendStatus(401);
 
     return res.json({
       id: userFound._id,

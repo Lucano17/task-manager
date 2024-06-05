@@ -5,8 +5,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import React, { useEffect } from "react";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
-import { GiCancel } from "react-icons/gi";
-import { Link } from "react-router-dom";
 
 dayjs.extend(utc);
 
@@ -22,7 +20,7 @@ const TaskFormPage = () => {
         const task = await getTask(params.id);
         setValue("title", task.title);
         setValue("description", task.description);
-        setValue("date", dayjs.utc(task.date).format("YYYY-MM-DD"))
+        setValue("date", dayjs.utc(task.date).format("YYYY-MM-DD"));
       }
     };
     loadTask();
@@ -63,9 +61,13 @@ const TaskFormPage = () => {
         />
         <label htmlFor="date">Do on</label>
         <input type="date" {...register("date")} />
-        <button className={styles.taskButton}>Save</button>
+        <div className={styles.taskButtonContainer}>
+          <button onSubmit={navigate("/tasks")} className={styles.taskCancelButton}>
+            Cancel
+          </button>
+          <button className={styles.taskButton}>Save</button>
+        </div>
       </form>
-      <Link to="/tasks" className={styles.taskCancelButton}><GiCancel /></Link>
     </div>
   );
 };

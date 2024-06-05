@@ -4,8 +4,7 @@ CMD: mongod -> Sino da error en consola
      mongosh
 
 
-Arreglar: 
-          - Add task debe tener un botón de cancelar tarea y que redireccione a "/tasks".
+Arreglar/Agregar: 
           - Agregar contenido al HomePage.
           - Agregar en profile opciones como: 
                                               - Eliminar cuenta

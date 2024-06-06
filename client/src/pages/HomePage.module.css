@@ -1,7 +1,55 @@
+.homePageContainer {
+    margin-left: 50px;
+}
+
 .homePageContainer h1 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    margin-bottom: 50px;
 }
 
 .homePageContainer h2 {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(251, 187, 243);
+}
+
+.homePageContainer a {
+    color: rgb(253, 1, 224);
+}
+
+.homePageContainer span {
+    color: rgb(253, 1, 224);
+}
+
+.homePageContainer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.homePageContainer ul li {
+    display: flex;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+}
+
+.homePageContainer ul li::before {
+    content: "";
+    background-image: url('../../public/taskIcon.png');
+    background-size: cover;
+    width: 25px; /* Ajusta según el tamaño de tu imagen */
+    height: 25px; /* Ajusta según el tamaño de tu imagen */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.reactIcon {
+    color: rgb(250, 56, 228);
+    margin-left: 7px;
+}
+
+.reactIcon:hover {
+    color: rgb(139, 34, 127);
 }

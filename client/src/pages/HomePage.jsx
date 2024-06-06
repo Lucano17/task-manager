@@ -9,7 +9,7 @@ import React from 'react'
 
 const HomePage = () => {
   return (
-    <div>
+    <div className={styles.homePageContainer}>
       <h1>Welcome to Tasks Manager</h1>
       <h2>Simple design, simple operation, high utility</h2>
       <p>This website was created with the proposal <br/>

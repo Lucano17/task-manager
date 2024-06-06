@@ -37,8 +37,8 @@
     content: "";
     background-image: url('../../public/taskIcon.png');
     background-size: cover;
-    width: 25px; /* Ajusta según el tamaño de tu imagen */
-    height: 25px; /* Ajusta según el tamaño de tu imagen */
+    width: 25px;
+    height: 25px;
     position: absolute;
     left: 0;
     top: 50%;

@@ -1,8 +1,17 @@
 body {
   color: white;
   background-color: rgb(14, 8, 15);
+  background-image: url("../../client/public/backgroundImage3.png");
+  background-position: 50%;
+  background-size: 200%;
   padding-top: 70px;
 }
+
+/* body {
+  color: white;
+  background: linear-gradient(60deg, rgb(14, 8, 15), rgb(19, 10, 20));
+  padding-top: 70px;
+} */
 
 
 

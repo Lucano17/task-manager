@@ -40,6 +40,11 @@ const TaskFormPage = () => {
     navigate("/tasks");
   });
 
+  const editSubmit = handleSubmit(()=>{
+    navigate("/tasks")
+  })
+
+
   return (
     <div className={styles.taskContainer}>
       <form onSubmit={onSubmit} className={styles.taskForm}>
@@ -62,7 +67,7 @@ const TaskFormPage = () => {
         <label htmlFor="date">Do on</label>
         <input type="date" {...register("date")} />
         <div className={styles.taskButtonContainer}>
-          <button onSubmit={navigate("/tasks")} className={styles.taskCancelButton}>
+          <button onSubmit={editSubmit} className={styles.taskCancelButton}>
             Cancel
           </button>
           <button className={styles.taskButton}>Save</button>

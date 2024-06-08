@@ -3,7 +3,6 @@ import styles from "./LoginPage.module.css";
 import {useForm} from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-import { Navigate } from "react-router-dom";
 
 
 const LoginPage = () => {

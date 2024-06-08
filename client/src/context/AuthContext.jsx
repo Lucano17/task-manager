@@ -57,6 +57,18 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
   };
 
+  const updateUser = async (updatedUser) => {
+    try {
+      const res = await updateUserRequest(updatedUser);
+      if (res.data) {
+        setUser(res.data);
+      }
+    } catch (error) {
+      console.log(error);
+      setErrors([error.response?.data?.message || "An error occurred"]);
+    }
+  };
+
   useEffect(() => {
     if (errors.length > 0) {
       const timer = setTimeout(() => {
@@ -97,7 +109,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ signup, signin, logout, loading, user, isAuthenticated, errors }}
+      value={{ signup, signin, logout, updateUser, loading, user, isAuthenticated, errors }}
     >
       {children}
     </AuthContext.Provider>

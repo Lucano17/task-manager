@@ -36,3 +36,9 @@ export const loginSchema = z.object({
       message: "Password must be at least 6 characters",
     }),
 });
+
+export const updateProfileSchema = z.object({
+  username: z.string().optional(),
+  email: z.string().email().optional(),
+  password: z.string().min(6).optional(),
+});

@@ -86,6 +86,34 @@ export const profile = async (req, res) => {
   });
 };
 
+
+export const updateProfile = async (req, res) => {
+  const { id } = req.user;
+  const { username, email, password } = req.body;
+
+  try {
+    const user = await User.findById(id);
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    user.username = username || user.username;
+    user.email = email || user.email;
+    if (password) {
+      user.password = await bcrypt.hash(password, 10);
+    }
+
+    const updatedUser = await user.save();
+
+    res.json({
+      id: updatedUser._id,
+      username: updatedUser.username,
+      email: updatedUser.email,
+      createdAt: updatedUser.createdAt,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 export const verifyToken = async (req, res) => {
   const { token } = req.cookies;
   if (!token) return res.json(false);

@@ -9,7 +9,7 @@ const ProfilePage = () => {
       <h1>Profile Page is not allowed yet.</h1>
       <h2>We are working on it c:</h2>
       <h4>Tasks quantity: number</h4>
-      {/* <h4>Account date created at: {userFound.createdAt}</h4> */}
+      <h4>Account date created at: {user && new Date(user.createdAt).toLocaleDateString()}</h4>
       <div>
         <h2>Private settings</h2>
         <h3>Username: {user.username} | <button>Edit</button></h3>

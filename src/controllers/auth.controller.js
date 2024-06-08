@@ -91,6 +91,8 @@ export const updateProfile = async (req, res) => {
   const { id } = req.user;
   const { username, email, password } = req.body;
 
+  console.log("Update request received:", {id, username, email, password})
+
   try {
     const user = await User.findById(id);
     if (!user) return res.status(404).json({ message: "User not found" });
@@ -110,6 +112,7 @@ export const updateProfile = async (req, res) => {
       createdAt: updatedUser.createdAt,
     });
   } catch (error) {
+    console.error("Update profile error:", error);
     res.status(500).json({ message: error.message });
   }
 };

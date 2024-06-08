@@ -1,10 +1,13 @@
+// ProfilePage.jsx
 import React, { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 
 const ProfilePage = () => {
-  const { user, updateUser } = useAuth();
+  const { user, updateUser, errors } = useAuth();
   const [editMode, setEditMode] = useState({ username: false, email: false, password: false });
   const [formData, setFormData] = useState({ username: user?.username, email: user?.email, password: "" });
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleEdit = (field) => {
     setEditMode({ ...editMode, [field]: true });
@@ -15,8 +18,21 @@ const ProfilePage = () => {
   };
 
   const handleSave = async (field) => {
-    await updateUser(formData);
-    setEditMode({ ...editMode, [field]: false });
+    try {
+      const updatedData = {...formData}
+      if (!formData.password) {
+        delete updatedData.password
+      }
+
+      console.log("Updating user with data:", updatedData); // Log de datos enviados
+      await updateUser(updatedData);
+      setSuccessMessage("Profile updated successfully");
+      setErrorMessage("");
+      setEditMode({ ...editMode, [field]: false });
+    } catch (error) {
+      console.error("Save profile error:", error); // Log detallado de errores
+      setErrorMessage(error.response?.data?.message || "An error occurred");
+    }
   };
 
   return (
@@ -87,6 +103,10 @@ const ProfilePage = () => {
             </>
           )}
         </h3>
+
+        {successMessage && <p>{successMessage}</p>}
+        {errorMessage && <p>Error: {errorMessage}</p>}
+        {errors.length > 0 && <p>Error: {errors.join(", ")}</p>}
         
         <button>Delete account</button>
       </div>

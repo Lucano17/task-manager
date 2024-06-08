@@ -1,5 +1,5 @@
 import { createContext, useState, useContext, useEffect } from "react";
-import { registerRequest, loginRequest, verifyTokenRequest } from "../api/auth.js";
+import { registerRequest, loginRequest, verifyTokenRequest, updateUserRequest } from "../api/auth.js";
 import Cookies from "js-cookie";
 
 export const AuthContext = createContext();
@@ -65,7 +65,7 @@ export const AuthProvider = ({ children }) => {
       }
     } catch (error) {
       console.log(error);
-      setErrors([error.response?.data?.message || "An error occurred"]);
+      setErrors([error.response?.data?.message || "Error acá chango: Update user error"]);
     }
   };
 

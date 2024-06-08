@@ -4,7 +4,7 @@ CMD: mongod -> Sino da error en consola
      mongosh
 
 
-Arreglar/Agregar: 
+Agregar: 
           - Agregar contenido al HomePage.
           - Agregar en profile opciones como: 
                                               - Eliminar cuenta
@@ -15,5 +15,8 @@ Arreglar/Agregar:
           - Agregar que cada task, al hacer click, te redireccione a un "/task/id" donde se vean
           la task en grande, y en caso de que tenga mucho contenido, puedas verlo cómodamente. También
           botones de editar y eliminar.
+
+Arreglar: 
+          - ProfilePage.jsx no actualiza los datos al backend
 
           

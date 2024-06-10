@@ -14,3 +14,7 @@ export const updateUserRequest = async (user) => {
       throw error;
     }
   };
+
+  export const getUserTasksCountRequest = async () => {
+    return await axios.get('/tasks-count');
+  };

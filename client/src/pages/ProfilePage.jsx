@@ -1,13 +1,21 @@
-// ProfilePage.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 
 const ProfilePage = () => {
-  const { user, updateUser, errors } = useAuth();
+  const { user, updateUser, errors, getUserTasksCount } = useAuth();
   const [editMode, setEditMode] = useState({ username: false, email: false, password: false });
   const [formData, setFormData] = useState({ username: user?.username, email: user?.email, password: "" });
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [tasksCount, setTasksCount] = useState(0);
+
+  useEffect(() => {
+    const fetchTasksCount = async () => {
+      const count = await getUserTasksCount();
+      setTasksCount(count);
+    };
+    fetchTasksCount();
+  }, [getUserTasksCount]);
 
   const handleEdit = (field) => {
     setEditMode({ ...editMode, [field]: true });
@@ -39,7 +47,7 @@ const ProfilePage = () => {
     <div>
       <h1>Profile Page is not allowed yet.</h1>
       <h2>We are working on it c:</h2>
-      <h4>Tasks quantity: number</h4>
+      <h4>Tasks quantity: {tasksCount}</h4>
       <h4>Account date created at: {user && new Date(user.createdAt).toLocaleDateString()}</h4>
       <div>
         <h2>Private settings</h2>

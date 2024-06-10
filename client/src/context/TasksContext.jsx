@@ -4,7 +4,7 @@ import {
   getTasksRequest,
   deleteTaskRequest,
   getTaskRequest,
-  updateTaskRequest
+  updateTaskRequest,
 } from "../api/tasks";
 
 const TaskContext = createContext();

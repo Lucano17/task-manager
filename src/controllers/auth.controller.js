@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import { createAccessToken } from "../libs/jwt.js";
 import jwt from "jsonwebtoken";
 import { TOKEN_SECRET } from "../config.js";
+import Task from "../models/task.model.js";
 
 export const register = async (req, res) => {
   const { email, password, username } = req.body;
@@ -113,6 +114,17 @@ export const updateProfile = async (req, res) => {
     });
   } catch (error) {
     console.error("Update profile error:", error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export const getUserTasksCount = async (req, res) => {
+  const userId = req.user.id;
+
+  try {
+    const tasksCount = await Task.countDocuments({ user: userId });
+    res.json({ tasksCount });
+  } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };

@@ -1,0 +1,60 @@
+.profilePageContaine {
+    display: flex;
+}
+
+.profilePageContainer h2 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(251, 46, 224);
+}
+
+.profilePageContainer h3 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(251, 121, 234);
+}
+
+.profilePageContainer h4 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(251, 121, 234);
+}
+
+.profilePageContainer span {
+    color: rgb(251, 187, 243);
+    margin-left: 10px;
+}
+
+.editButton {
+    margin-left: 10px;
+    padding: 2px 7px 2px 7px;
+    font-weight: 600;
+    color: aliceblue;
+    background-color: #ff00ff;
+    border-radius: 5px;
+    cursor: pointer
+}
+
+.editButton:active{
+    background-color: #a000a0;
+}
+
+.editInput {
+    margin-left: 10px;
+    border: 3px solid rgb(251, 46, 224);
+    border-radius: 5px;
+    background-color: transparent;
+    color: wheat;
+    padding: 3px;
+}
+
+.saveButton {
+    margin-left: 10px;
+    padding: 2px 7px 2px 7px;
+    font-weight: 600;
+    color: aliceblue;
+    background-color: #02386e;
+    border-radius: 5px;
+    cursor: pointer
+}
+
+.saveButton:active{
+    background-color: #011a33;
+}

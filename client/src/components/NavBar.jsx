@@ -13,7 +13,7 @@ const NavBar = () => {
     } else if (location.pathname === "/profile") {
       return { to: "/tasks", name: "Tasks" };
     } else {
-      return { to: "", name: "" };
+      return { to: "/tasks", name: "Tasks" };
     }
   };
   const linkDetails = getLinkDetails();

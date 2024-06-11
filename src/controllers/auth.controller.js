@@ -32,7 +32,7 @@ export const register = async (req, res) => {
       id: userSaved._id,
       username: userSaved.username,
       email: userSaved.email,
-      createdAt: userSaved.createdAt
+      createdAt: userSaved.createdAt,
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -87,12 +87,11 @@ export const profile = async (req, res) => {
   });
 };
 
-
 export const updateProfile = async (req, res) => {
   const { id } = req.user;
   const { username, email, password } = req.body;
 
-  console.log("Update request received:", {id, username, email, password})
+  console.log("Update request received:", { id, username, email, password });
 
   try {
     const user = await User.findById(id);
@@ -129,6 +128,19 @@ export const getUserTasksCount = async (req, res) => {
   }
 };
 
+export const deleteUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findByIdAndDelete(id);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    res.status(204).send();
+  } catch (error) {
+    res.status(500).json({ message: "Delete user error", error });
+  }
+};
+
 export const verifyToken = async (req, res) => {
   const { token } = req.cookies;
   if (!token) return res.json(false);
@@ -143,7 +155,7 @@ export const verifyToken = async (req, res) => {
       id: userFound._id,
       username: userFound.username,
       email: userFound.email,
-      createdAt: userFound.createdAt
+      createdAt: userFound.createdAt,
     });
   });
 };

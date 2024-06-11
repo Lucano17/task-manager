@@ -1,5 +1,5 @@
 import { createContext, useState, useContext, useEffect } from "react";
-import { registerRequest, loginRequest, verifyTokenRequest, updateUserRequest, getUserTasksCountRequest } from "../api/auth.js";
+import { registerRequest, loginRequest, verifyTokenRequest, updateUserRequest, getUserTasksCountRequest, deleteUserRequest } from "../api/auth.js";
 import Cookies from "js-cookie";
 
 export const AuthContext = createContext();
@@ -68,6 +68,18 @@ export const AuthProvider = ({ children }) => {
       setErrors([error.response?.data?.message || "Error acá chango: Update user error"]);
     }
   };
+
+  const deleteUser = async (userId) => {
+    try {
+      const res = await deleteUserRequest(userId);
+      if (res.status === 204) {
+        setUser(null);
+        setIsAuthenticated(false);
+      }
+    } catch (error) {
+      setErrors([error.response?.data?.message || "Delete user error"]);
+    }
+  };
   
   const getUserTasksCount = async () => {
     try {
@@ -119,7 +131,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ signup, signin, logout, updateUser, loading, user, isAuthenticated, errors, getUserTasksCount }}
+      value={{ signup, signin, logout, updateUser, deleteUser, loading, user, isAuthenticated, errors, getUserTasksCount }}
     >
       {children}
     </AuthContext.Provider>

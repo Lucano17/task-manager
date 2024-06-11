@@ -18,3 +18,12 @@ export const updateUserRequest = async (user) => {
   export const getUserTasksCountRequest = async () => {
     return await axios.get('/tasks-count');
   };
+
+  export const deleteUserRequest = async (userId) => {
+    try {
+      return await axios.delete(`/profile/${userId}`);
+    } catch (error) {
+      console.error("Delete request error:", error);
+      throw error;
+    }
+  };

@@ -1,19 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import styles from "./ProfilePage.module.css";
+import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
-  const { user, updateUser, errors, getUserTasksCount } = useAuth();
+  const navigate = useNavigate();
+  const { user, updateUser, errors, getUserTasksCount, deleteUser } = useAuth();
   const [editMode, setEditMode] = useState({
     username: false,
     email: false,
     password: false,
   });
+
   const [formData, setFormData] = useState({
-    username: user?.username,
-    email: user?.email,
+    username: "",
+    email: "",
     password: "",
   });
+
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [tasksCount, setTasksCount] = useState(0);
@@ -25,6 +29,31 @@ const ProfilePage = () => {
     };
     fetchTasksCount();
   }, [getUserTasksCount]);
+
+  useEffect(() => {
+    if (user) {
+      setFormData({
+        username: user.username,
+        email: user.email,
+        password: "",
+      });
+    }
+  }, [user]);
+
+  const handleDelete = async () => {
+    if (!user || !user.id) {
+      console.error("User or User ID is not defined ptm", user);
+      return;
+    }
+
+    const confirmed = window.confirm("Are you sure you want to delete this account?");
+    if (confirmed) {
+      await deleteUser(user.id);
+      navigate("/");
+    } else {
+      console.log("Couldn't delete this account");
+    }
+  };
 
   const handleEdit = (field) => {
     setEditMode({ ...editMode, [field]: true });
@@ -41,16 +70,18 @@ const ProfilePage = () => {
         delete updatedData.password;
       }
 
-      console.log("Updating user with data:", updatedData); // Log de datos enviados
       await updateUser(updatedData);
       setSuccessMessage("Profile updated successfully");
       setErrorMessage("");
       setEditMode({ ...editMode, [field]: false });
     } catch (error) {
-      console.error("Save profile error:", error); // Log detallado de errores
       setErrorMessage(error.response?.data?.message || "An error occurred");
     }
   };
+
+  if (!user) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div className={styles.profilePageContainer}>
@@ -162,7 +193,7 @@ const ProfilePage = () => {
         {errorMessage && <p>Error: {errorMessage}</p>}
         {errors.length > 0 && <p>Error: {errors.join(", ")}</p>}
 
-        {/* <button>Delete account</button> */}
+        <button onClick={handleDelete}>Delete account</button>
       </div>
     </div>
   );

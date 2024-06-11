@@ -193,7 +193,7 @@ const ProfilePage = () => {
         {errorMessage && <p>Error: {errorMessage}</p>}
         {errors.length > 0 && <p>Error: {errors.join(", ")}</p>}
 
-        <button onClick={handleDelete}>Delete account</button>
+        <button className={styles.deleteButton} onClick={handleDelete}>Delete account</button>
       </div>
     </div>
   );

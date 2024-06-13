@@ -189,9 +189,9 @@ const ProfilePage = () => {
           )}
         </h3>
 
-        {successMessage && <p>{successMessage}</p>}
-        {errorMessage && <p>Error: {errorMessage}</p>}
-        {errors.length > 0 && <p>Error: {errors.join(", ")}</p>}
+        {successMessage && <p className={styles.successMessage}>{successMessage}</p>}
+        {errorMessage && <p className={styles.errorMessage}>Error: {errorMessage}</p>}
+        {errors.length > 0 && <p className={styles.errorMessage}>Error: {errors.join(", ")}</p>}
 
         <button className={styles.deleteButton} onClick={handleDelete}>Delete account</button>
       </div>

@@ -23,6 +23,26 @@ const ProfilePage = () => {
   const [tasksCount, setTasksCount] = useState(0);
 
   useEffect(() => {
+    let successTimer;
+    let errorTimer;
+
+    if (successMessage.length > 0) {
+      successTimer = setTimeout(() => {
+        setSuccessMessage([]);
+      }, 5000);
+    } else if (errorMessage.length > 0) {
+      errorTimer = setTimeout(() => {
+        setErrorMessage([]);
+      }, 5000);
+    }
+
+    return () => {
+      clearTimeout(successTimer);
+      clearTimeout(errorTimer);
+    };
+  }, [successMessage, errorMessage]);
+
+  useEffect(() => {
     const fetchTasksCount = async () => {
       const count = await getUserTasksCount();
       setTasksCount(count);
@@ -46,7 +66,9 @@ const ProfilePage = () => {
       return;
     }
 
-    const confirmed = window.confirm("Are you sure you want to delete this account?");
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this account?"
+    );
     if (confirmed) {
       await deleteUser(user.id);
       navigate("/");
@@ -189,11 +211,19 @@ const ProfilePage = () => {
           )}
         </h3>
 
-        {successMessage && <p className={styles.successMessage}>{successMessage}</p>}
-        {errorMessage && <p className={styles.errorMessage}>Error: {errorMessage}</p>}
-        {errors.length > 0 && <p className={styles.errorMessage}>Error: {errors.join(", ")}</p>}
+        {successMessage && (
+          <p className={styles.successMessage}>{successMessage}</p>
+        )}
+        {errorMessage && (
+          <p className={styles.errorMessage}>Error: {errorMessage}</p>
+        )}
+        {errors.length > 0 && (
+          <p className={styles.errorMessage}>Error: {errors.join(", ")}</p>
+        )}
 
-        <button className={styles.deleteButton} onClick={handleDelete}>Delete account</button>
+        <button className={styles.deleteButton} onClick={handleDelete}>
+          Delete account
+        </button>
       </div>
     </div>
   );

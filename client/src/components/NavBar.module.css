@@ -70,6 +70,10 @@
     font-size: 25px;
 }
 
+.linkRouters {
+    color: rgb(214, 33, 193);
+}
+
 @keyframes shine {
     0% {
       background-position: -200%;

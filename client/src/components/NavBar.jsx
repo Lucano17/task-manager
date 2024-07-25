@@ -31,7 +31,7 @@ const NavBar = () => {
               {user.username}
             </Link>
           </h3>
-          <ul className={styles.linkRouters}>
+          <ul>
             <li className={styles.linkRouters}>
             <Link className={styles.linkRouters} to={linkDetails.to}>{linkDetails.name}</Link>
             </li>
@@ -50,7 +50,7 @@ const NavBar = () => {
         </>
       ) : (
         <>
-          <ul className={styles.linkRouters}>
+          <ul>
             <li className={styles.linkRouters}>
               <Link className={styles.linkRouters} to="/login">Login</Link>
             </li>

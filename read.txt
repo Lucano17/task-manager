@@ -1,8 +1,8 @@
-Scripts: npm run dev ("nodemon run src/index.js")
-
-CMD: mongod -> Sino da error en consola
-     mongosh
-
+Scripts: 
+- npm run dev (en src)
+- npm run dev (en la carpeta client)
+- mongod en CMD
+- mongosh en CMD
 
 Agregar: 
           - Agregar contenido al HomePage.

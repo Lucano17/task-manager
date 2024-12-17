@@ -21,10 +21,10 @@ const TasksPage = () => {
 
   return (
     <div className={styles.tasksPageContainer}>
+
       <Link className={styles.addTask} to="/tasks/new">
         Add new task <div className={styles.reactIcon}><BsPlusCircle/></div>
       </Link>
-
       <div className={styles.tasksDiv}>
         {tasks.map((task) => (
           <TaskCard task={task} key={task._id} />

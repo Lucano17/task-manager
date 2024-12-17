@@ -35,7 +35,10 @@
 
 .navBar h3 {
     position: relative;
-    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    gap: 10px;
 }
 
 .navBar li {

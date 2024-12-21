@@ -8,7 +8,7 @@ import cors from "cors"
 const app = express();
 
 app.use(cors({
-    origin: `${process.env.BACKEND_SERVER_URL}`,
+    origin: `${process.env.APP_URL}`,
     credentials: true
 }))
 app.use(morgan("dev"));

@@ -9,7 +9,7 @@ const app = express();
 
 
 app.use(cors({
-    origin: process.env.VITE_APP_URL|| "http://localhost:5173",
+    origin: ["http://localhost:5173", "https://task-manager-sigma-two-21.vercel.app"],
     credentials: true
 }))
 app.use(morgan("dev"));

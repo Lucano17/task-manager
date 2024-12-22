@@ -8,3 +8,5 @@ const instance = axios.create({
         : "http://localhost:4000",
     withCredentials: true,
 });
+
+export default instance

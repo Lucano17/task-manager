@@ -33,7 +33,7 @@ const onSubmit = handleSubmit((data) => {
           type="email"
           placeholder="E-mail"
           {...register("email", { required: true })}
-        />
+          />
         {errors.email && (
           <p className={styles.loginError}>E-mail is required</p>
         )}
@@ -43,7 +43,7 @@ const onSubmit = handleSubmit((data) => {
           type="password"
           placeholder="Password"
           {...register("password", { required: true })}
-        />
+          />
         {errors.password && (
           <p className={styles.loginError}>Password is required</p>
         )}

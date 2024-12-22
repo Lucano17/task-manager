@@ -1,55 +1,69 @@
 .loginContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .loginForm {
-    align-items: center;
-    display: flex;
-    flex-direction: column; /* Alinea los elementos del formulario en columna */
-    padding: 20px;
-    width: 25%;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: rgba(80, 30, 74, 0.558);
+  margin-top: 50px;
+  align-items: center;
+  display: flex;
+  flex-direction: column; /* Alinea los elementos del formulario en columna */
+  padding: 20px;
+  width: 25%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: rgba(80, 30, 74, 0.558);
 }
 
 .loginInput {
-    margin-top: 20px;
-    width: 90%;
+  margin-top: 25px;
+  padding: 5px 0;
+  width: 90%;
+  border-radius: 3px;
 }
 
 .loginButton {
-    background-color: rgb(153, 14, 181);
-    color: white;
-    border-radius: 5px;
-    padding: 5px;
-    font-weight: 600;
-    margin-top: 20px;
-    width: 50%;
+  background-color: rgb(153, 14, 181);
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  font-weight: 600;
+  margin-top: 20px;
+  width: 50%;
 }
 
 .loginError {
-    color: rgb(233, 57, 110);
+  color: rgb(233, 57, 110);
 }
 
 .loginForm h1 {
-    color: white;
+  color: white;
 }
 
 .moveToRegister {
-    display: flex;
-    color: white;
-    position: relative;
+  display: flex;
+  color: white;
+  position: relative;
 }
 
 .moveToRegisterButton {
-    margin-left: 3px;
+  margin-left: 3px;
 }
 
 .moveToRegister a:visited {
-    color: rgb(214, 33, 193);
+  color: rgb(214, 33, 193);
+}
+
+@media (max-width: 700px) {
+  .loginForm {
+    width: 250px;
+    height: 300px;
   }
+  .loginButton {
+    margin-top: auto;
+    margin-bottom: 15px;
+  }
+}

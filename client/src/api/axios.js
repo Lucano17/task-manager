@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const BASE_URL = import.meta.env.BACKEND_SERVER_URL;
+// const BASE_URL = import.meta.env.BACKEND_SERVER_URL;
 
 const instance = axios.create({
-    baseURL: BASE_URL,
+    baseURL: import.meta.env.VITE_BACKEND_SERVER_URL || "http://localhost:4000",
     withCredentials: true
 })
 

@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: process.env.NEXT_PUBLIC_BACKEND_SERVER_URL,
+        target: process.env.BACKEND_SERVER_URL,
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/api/, ''),

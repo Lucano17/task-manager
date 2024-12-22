@@ -35,7 +35,7 @@
 
 .homePageContainer ul li::before {
     content: "";
-    background-image: url('../../public/taskIcon.png');
+    background-image: url('/taskIcon.png');
     background-size: cover;
     width: 25px;
     height: 25px;

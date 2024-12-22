@@ -1,7 +1,7 @@
 body {
   color: white;
   background-color: rgb(14, 8, 15);
-  background-image: url("../../client/public/backgroundImage3.png");
+  background-image: url("/backgroundImage3.png");
   background-position: 50%;
   background-size: 200%;
   padding-top: 70px;

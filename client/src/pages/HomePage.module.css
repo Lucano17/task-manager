@@ -53,3 +53,7 @@
 .reactIcon:hover {
     color: rgb(139, 34, 127);
 }
+
+.registerButton {
+    color: rgb(253, 1, 224);
+}

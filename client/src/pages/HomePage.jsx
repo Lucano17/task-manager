@@ -22,7 +22,7 @@ const HomePage = () => {
           <li>Create a list to remember what you don't want to forget <div className={styles.reactIcon}><GiThink /></div></li>
           <li>And much more <div className={styles.reactIcon}><BiSolidFilePlus /></div></li>
          </ul>
-      <h2>Create your account <Link to="/register">HERE</Link>, and enjoy</h2>
+      <h2>Create your account <Link to="/register" className={styles.registerButton}>HERE</Link>, and enjoy</h2>
     </div>
   )
 }

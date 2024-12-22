@@ -7,6 +7,7 @@ export const connectDB = async ()=>{
         console.log(">>> Database is connected to MongoDB Atlas");
     }
     catch(error){
+        console.log("Error al conectarse en la base de datos")
         console.log(error);
     }
 };

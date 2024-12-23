@@ -12,6 +12,13 @@ app.use(cors({
     origin: ["http://localhost:5173", "https://task-manager-sigma-two-21.vercel.app"],
     credentials: true
 }))
+app.use((req, res, next) => {
+    if (req.method === "HEAD") {
+      res.status(200).end();
+    } else {
+      next();
+    }
+  });
 app.use(morgan("dev"));
 app.use(express.json())
 app.use(cookieParser())

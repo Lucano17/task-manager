@@ -4,7 +4,7 @@ import axios from "axios";
 
 const instance = axios.create({
     baseURL: import.meta.env.MODE === "production" 
-        ? "https://task-manager-production-3f1d.up.railway.app" 
+        ? import.meta.env.VITE_BACKEND_SERVER_URL
         : "http://localhost:4000",
     withCredentials: true,
 });

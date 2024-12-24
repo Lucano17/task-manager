@@ -92,16 +92,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if (errors.length > 0) {
-      const timer = setTimeout(() => {
-        setErrors([]);
-      }, 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [errors]);
-
-  useEffect(() => {
-    async function checkLogin() {
+    const checkAuthentication = async () => {
       const cookies = Cookies.get();
       if (!cookies.token) {
         setIsAuthenticated(false);
@@ -111,30 +102,13 @@ export const AuthProvider = ({ children }) => {
       }
       try {
         const res = await verifyTokenRequest();
-        if (!res.data) {
+        if (res.data) {
+          setIsAuthenticated(true);
+          setUser(res.data);
+        } else {
           setIsAuthenticated(false);
-          setLoading(false);
           setUser(null);
-          return;
         }
-        setIsAuthenticated(true);
-        setUser(res.data);
-        setLoading(false);
-      } catch (error) {
-        setIsAuthenticated(false);
-        setUser(null);
-        setLoading(false);
-      }
-    }
-    checkLogin();
-  }, []);
-
-  useEffect(() => {
-    const checkAuthentication = async () => {
-      try {
-        const res = await verifyTokenRequest();
-        setIsAuthenticated(true);
-        setUser(res.data);
       } catch (error) {
         setIsAuthenticated(false);
         setUser(null);
@@ -145,6 +119,7 @@ export const AuthProvider = ({ children }) => {
   
     checkAuthentication();
   }, []);
+  
 
   return (
     <AuthContext.Provider

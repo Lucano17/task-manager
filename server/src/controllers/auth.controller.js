@@ -24,7 +24,7 @@ export const register = async (req, res) => {
     const token = await createAccessToken({ id: userSaved._id });
 
     res.cookie("token", token, {
-      sameSite: "lax",
+      sameSite: "none",
       secure: true,
       httpOnly: true,
       domain: ".vercel.app",

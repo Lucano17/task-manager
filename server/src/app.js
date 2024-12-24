@@ -11,6 +11,7 @@ const corsOptions = {
   origin: 'https://task-manager-sigma-two-21.vercel.app', // Tu dominio permitido
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'], // Encabezados permitidos
+  credentials: true, 
 };
 
 app.use(cors(corsOptions));

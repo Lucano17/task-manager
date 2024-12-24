@@ -31,8 +31,13 @@ export function TaskProvider({ children }) {
   };
 
   const createTask = async (task) => {
-    const res = await createTaskRequest(task);
-    console.log(res);
+    try {
+      await createTaskRequest(task);
+      const res = await getTasksRequest(); // Vuelve a obtener todas las tareas
+      setTasks(res.data); // Actualiza el estado de las tareas
+    } catch (error) {
+      console.error("Error creating task:", error);
+    }
   };
 
   const deleteTask = async (id) => {

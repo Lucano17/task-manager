@@ -129,6 +129,23 @@ export const AuthProvider = ({ children }) => {
     checkLogin();
   }, []);
 
+  useEffect(() => {
+    const checkAuthentication = async () => {
+      try {
+        const res = await verifyTokenRequest();
+        setIsAuthenticated(true);
+        setUser(res.data);
+      } catch (error) {
+        setIsAuthenticated(false);
+        setUser(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+  
+    checkAuthentication();
+  }, []);
+
   return (
     <AuthContext.Provider
       value={{ signup, signin, logout, updateUser, deleteUser, loading, user, isAuthenticated, errors, getUserTasksCount }}

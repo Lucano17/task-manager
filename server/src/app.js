@@ -19,6 +19,11 @@ app.use((req, res, next) => {
       next();
     }
   });
+  app.use((req, res, next) => {
+    console.log("Cookies:", req.cookies);
+    console.log("Headers:", req.headers);
+    next();
+});
 app.use(morgan("dev"));
 app.use(express.json())
 app.use(cookieParser())

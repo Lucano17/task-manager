@@ -24,9 +24,11 @@ export const register = async (req, res) => {
     const token = await createAccessToken({ id: userSaved._id });
 
     res.cookie("token", token, {
-      sameSite: "none",
+      sameSite: "lax",
       secure: true,
       httpOnly: true,
+      domain: ".vercel.app",
+      path: "/"
     });
     res.json({
       id: userSaved._id,
@@ -141,7 +143,7 @@ export const deleteUser = async (req, res) => {
   }
 };
 
-export const verifyToken = async (req, res) => {
+export const cdToken = async (req, res) => {
   const { token } = req.cookies;
   if (!token) return res.json(false);
 

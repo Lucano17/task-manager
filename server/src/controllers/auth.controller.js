@@ -143,7 +143,7 @@ export const deleteUser = async (req, res) => {
   }
 };
 
-export const cdToken = async (req, res) => {
+export const verifyToken = async (req, res) => {
   const { token } = req.cookies;
   if (!token) return res.json(false);
 

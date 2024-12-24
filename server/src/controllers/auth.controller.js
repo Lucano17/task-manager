@@ -27,7 +27,6 @@ export const register = async (req, res) => {
       sameSite: "none",
       secure: true,
       httpOnly: true,
-      domain: ".vercel.app",
       path: "/"
     });
     res.json({

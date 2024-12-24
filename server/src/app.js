@@ -7,19 +7,16 @@ import cors from "cors";
 
 const app = express();
 
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173",
-      "https://task-manager-sigma-two-21.vercel.app",
-    ],
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+const corsOptions = {
+  origin: 'https://task-manager-sigma-two-21.vercel.app', // Tu dominio permitido
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'], // Encabezados permitidos
+};
+
+app.use(cors(corsOptions));
 app.post('/api/login', (req, res) => {
-  // Lógica de login
+  // Lógica para manejar login
+  res.json({ message: 'Login exitoso' });
 });
 app.use((req, res, next) => {
   if (req.method === "HEAD") {

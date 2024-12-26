@@ -1,5 +1,12 @@
 import { createContext, useState, useContext, useEffect } from "react";
-import { registerRequest, loginRequest, verifyTokenRequest, updateUserRequest, getUserTasksCountRequest, deleteUserRequest } from "../api/auth.js";
+import {
+  registerRequest,
+  loginRequest,
+  verifyTokenRequest,
+  updateUserRequest,
+  getUserTasksCountRequest,
+  deleteUserRequest,
+} from "../api/auth.js";
 import Cookies from "js-cookie";
 
 export const AuthContext = createContext();
@@ -21,9 +28,10 @@ export const AuthProvider = ({ children }) => {
   const signup = async (user) => {
     try {
       const res = await registerRequest(user);
-      if (res.status
+      if (
+        res.status
         //  === 200 && res.data
-        ) {
+      ) {
         console.log(res.data);
         setUser(res.data);
         setIsAuthenticated(true);
@@ -67,7 +75,9 @@ export const AuthProvider = ({ children }) => {
       }
     } catch (error) {
       console.log(error);
-      setErrors([error.response?.data?.message || "Error acá chango: Update user error"]);
+      setErrors([
+        error.response?.data?.message || "Error acá chango: Update user error",
+      ]);
     }
   };
 
@@ -82,7 +92,7 @@ export const AuthProvider = ({ children }) => {
       setErrors([error.response?.data?.message || "Delete user error"]);
     }
   };
-  
+
   const getUserTasksCount = async () => {
     try {
       const res = await getUserTasksCountRequest();
@@ -94,36 +104,41 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const checkAuthentication = async () => {
-      const cookies = Cookies.get();
-      if (!cookies.token) {
-        console.log("No hay token")
-        setIsAuthenticated(false);
-        setLoading(false);
-        setUser(null);
-        return;
-      }
+    const checkSession = async () => {
       try {
-        const res = await verifyTokenRequest(cookies.token);
-        if (!res.data) setIsAuthenticated(false);
-          setIsAuthenticated(true);
-          setUser(res.data);
-        
+        const response = await verifyTokenRequest();
+        if (response.data) {
+          setUser(response.data);
+          setIsAuthenticated(true)
+        } else {
+          setUser(null);
+          setIsAuthenticated(false);
+        }
       } catch (error) {
-        setIsAuthenticated(false);
-        setUser(null);
+        console.error("Session verification failed:", error);
+        setUser(null); // Si el token no es válido, se asegura de que el usuario esté deslogueado
       } finally {
         setLoading(false);
       }
     };
-  
-    checkAuthentication();
+
+    checkSession();
   }, []);
-  
 
   return (
     <AuthContext.Provider
-      value={{ signup, signin, logout, updateUser, deleteUser, loading, user, isAuthenticated, errors, getUserTasksCount }}
+      value={{
+        signup,
+        signin,
+        logout,
+        updateUser,
+        deleteUser,
+        loading,
+        user,
+        isAuthenticated,
+        errors,
+        getUserTasksCount,
+      }}
     >
       {children}
     </AuthContext.Provider>

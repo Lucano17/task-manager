@@ -51,9 +51,14 @@ export const login = async (req, res) => {
     if (!isMatch)
       return res.status(400).json({ message: "Incorrect password" });
 
-    const token = await createAccessToken({ id: userFound._id });
+    const token = await createAccessToken({ id: userFound._id, username: userFound.username, });
 
-    res.cookie("token", token);
+    res.cookie("token", token, {
+      httpOnly: process.env.NODE_ENV !== "development",
+      secure: true,
+      sameSite: "none",
+    });
+    
     res.json({
       id: userFound._id,
       username: userFound.username,

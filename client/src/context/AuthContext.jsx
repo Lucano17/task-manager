@@ -21,7 +21,9 @@ export const AuthProvider = ({ children }) => {
   const signup = async (user) => {
     try {
       const res = await registerRequest(user);
-      if (res.status === 200 && res.data) {
+      if (res.status
+        //  === 200 && res.data
+        ) {
         console.log(res.data);
         setUser(res.data);
         setIsAuthenticated(true);
@@ -36,8 +38,8 @@ export const AuthProvider = ({ children }) => {
     try {
       const res = await loginRequest(user);
       if (res.data) {
-        setIsAuthenticated(true);
         setUser(res.data);
+        setIsAuthenticated(true);
       } else {
         throw new Error("No data in response");
       }
@@ -95,20 +97,18 @@ export const AuthProvider = ({ children }) => {
     const checkAuthentication = async () => {
       const cookies = Cookies.get();
       if (!cookies.token) {
+        console.log("No hay token")
         setIsAuthenticated(false);
         setLoading(false);
         setUser(null);
         return;
       }
       try {
-        const res = await verifyTokenRequest();
-        if (res.data) {
+        const res = await verifyTokenRequest(cookies.token);
+        if (!res.data) setIsAuthenticated(false);
           setIsAuthenticated(true);
           setUser(res.data);
-        } else {
-          setIsAuthenticated(false);
-          setUser(null);
-        }
+        
       } catch (error) {
         setIsAuthenticated(false);
         setUser(null);
